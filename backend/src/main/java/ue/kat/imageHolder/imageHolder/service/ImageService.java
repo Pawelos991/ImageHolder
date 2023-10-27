@@ -1,12 +1,14 @@
 package ue.kat.imageHolder.imageHolder.service;
 
 import java.io.IOException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ue.kat.imageHolder.imageHolder.dao.ImageRepository;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageDto;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageRequest;
+import ue.kat.imageHolder.imageHolder.dto.image.ImageResponse;
 import ue.kat.imageHolder.imageHolder.exception.BadRequestException;
 import ue.kat.imageHolder.imageHolder.mapper.ImageEntityMapper;
 import ue.kat.imageHolder.imageHolder.model.ImageEntity;
@@ -17,6 +19,13 @@ public class ImageService {
   private final ImageRepository imageRepository;
   private final ImageEntityMapper imageEntityMapper;
 
+
+  public List<ImageResponse> getImages() {
+    return imageRepository.findAll()
+        .stream()
+        .map(imageEntityMapper::toResponse)
+        .toList();
+  }
 
   public ImageDto getImage(int id) {
     return imageEntityMapper.toDto(

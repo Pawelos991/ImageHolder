@@ -7,6 +7,7 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageDto;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageRequest;
+import ue.kat.imageHolder.imageHolder.dto.image.ImageResponse;
 import ue.kat.imageHolder.imageHolder.model.ImageEntity;
 
 @Mapper(
@@ -24,4 +25,6 @@ public interface ImageEntityMapper {
   @Mapping(target = "bytes",
       expression = "java(java.util.Base64.getDecoder().decode(imageEntity.getBase64()))")
   ImageDto toDto(ImageEntity imageEntity);
+
+  ImageResponse toResponse(ImageEntity imageEntity);
 }

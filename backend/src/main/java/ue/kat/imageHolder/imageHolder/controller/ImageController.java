@@ -1,5 +1,6 @@
 package ue.kat.imageHolder.imageHolder.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ue.kat.imageHolder.imageHolder.dto.BasicResponse;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageDto;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageRequest;
+import ue.kat.imageHolder.imageHolder.dto.image.ImageResponse;
 import ue.kat.imageHolder.imageHolder.service.ImageService;
 
 @RestController
@@ -25,8 +27,8 @@ public class ImageController {
   private final ImageService imageService;
 
   @GetMapping
-  public ImageDto getImageData() {
-    return new ImageDto();
+  public List<ImageResponse> getImages() {
+    return imageService.getImages();
   }
 
   @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)

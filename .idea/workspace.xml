@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6003b343-1a8a-4a81-b7d8-a5679fb72dc9" name="Changes" comment="feature: image-upload">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/dto/image/ImageResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/controller/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/controller/ImageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/dto/image/ImageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/dto/image/ImageDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/mapper/ImageEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/ue/kat/imageHolder/imageHolder/mapper/ImageEntityMapper.java" afterDir="false" />
@@ -139,19 +139,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="feature/image-download" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -160,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feature: Backend initialization" />
     <MESSAGE value="feature: Flyway config" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: Flyway config" />
+    <MESSAGE value="feature: image-download" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: image-download" />
   </component>
 </project>

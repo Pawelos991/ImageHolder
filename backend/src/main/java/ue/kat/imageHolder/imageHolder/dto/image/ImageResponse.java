@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ImageDto {
-  private String filename;
-  private byte[] bytes;
+public class ImageResponse {
+  private Integer id;
+  private String name;
+  private String description;
 }
