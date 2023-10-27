@@ -1,4 +1,4 @@
-package ue.kat.imageHolder.imageHolder.dto;
+package ue.kat.imageHolder.imageHolder.dto.image;
 
 import lombok.Data;
 
