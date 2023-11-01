@@ -1,38 +1,32 @@
-<button mat-raised-button (click)="onFileUploadClick()">Dodaj obraz</button>
-
-<input  mat-raised-button type="file" class="file-input"
-       (change)="onFileSelected($event)" #fileUpload>
 
 
-       <table mat-table [dataSource]="imageSource" class="mat-elevation-z8" #imageTableElement>
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
+<div class="row d-flex justify-content-center">
+  <button mat-raised-button class="col-md-2" (click)="onFileUploadClick()">Dodaj obraz</button>
+  <input  mat-raised-button type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload >
+</div>
+<div class="row mt-5">
+  <div class="col-md-12">
+       <table mat-table [dataSource]="fileList" class="mat-elevation-z8" #imageTableElement>
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <th mat-header-cell *matHeaderCellDef class="textCenter"> Nazwa </th>
+          <td mat-cell *matCellDef="let element" class="textCenter"> {{element.name}} </td>
         </ng-container>
       
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef class="textCenter"> Opis </th>
+          <td mat-cell *matCellDef="let element" class="textCenter"> {{element.description}} </td>
         </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+
+        <ng-container matColumnDef="actions" >
+          <th mat-header-cell *matHeaderCellDef ></th>
+          <td mat-cell *matCellDef="let element" class="textRight">
+            <button mat-raised-button color="primary" (click)="getFileById(element)">Pobierz</button>
+          </td>
         </ng-container>
-      
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+    </div>
+</div>
