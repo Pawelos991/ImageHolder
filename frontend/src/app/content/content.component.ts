@@ -3,6 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatTableModule } from "@angular/material/table";
 import { FileServices } from "../services/file.services";
 import { File } from "../model/File";
+import { take } from "rxjs/operators";
 
 @Component({
     selector: 'content-viewer',
@@ -33,8 +34,8 @@ import { File } from "../model/File";
         this.fileUpload.nativeElement.click();
     }
 
-    getFileById(id: any){
-      console.log(id);
+    getFileById(elementToSave: any){
+      this.fileService.getFileById(elementToSave.id);
     }
   }
   
