@@ -10,11 +10,17 @@ import {MatTableModule} from '@angular/material/table';
 import { FileServices } from './services/file.services';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { FileInputDialog } from './inputFileDialog/inputFileDialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentComponent
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,10 +29,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatTableModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule,
+    MatInputModule,    
+    FileInputDialog,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ],
   providers: [
     FileServices,
+    MatDialog
   ],
   bootstrap: [AppComponent]
 })

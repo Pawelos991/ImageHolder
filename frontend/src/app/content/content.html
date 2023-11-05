@@ -1,9 +1,7 @@
 
 
 <div class="row d-flex justify-content-center">
-  <button mat-raised-button class="col-md-2" (click)="onFileUploadClick()">Dodaj obraz</button>
-  <input  mat-raised-button type="file" class="file-input"
-       (change)="onFileSelected($event)" #fileUpload >
+  <button mat-raised-button class="col-md-2" (click)="openDialog('0ms', '0ms')">Dodaj obraz</button>
 </div>
 <div class="row mt-5">
   <div class="col-md-12">

@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpEvent, HttpRequest, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, lastValueFrom } from 'rxjs';
 import { environment } from "src/enviroment/environment";
@@ -25,10 +25,19 @@ export class FileServices {
         downloadLink.click();
     }
 
-
     public async upladFile(fileToUpload: any): Promise<boolean> {
         var url = environment + 'images'
         const files =  this.httpClient.post<boolean>(url, fileToUpload);
         return await lastValueFrom<boolean>(files);
+    }
+
+    pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+        const data: FormData = new FormData();
+        //data.append('file', file);
+        const newRequest = new HttpRequest('POST', 'http://localhost:8080/savefile', data, {
+        reportProgress: true,
+        responseType: 'text'
+        });
+        return this.httpClient.request(newRequest);
     }
 }

@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Wybierz plik</h1>
+<div mat-dialog-content>
+    <div class="row d-flex justify-content-center">
+        <button mat-raised-button class="col-md-4" (click)="onFileUploadClick()">Wybierz obraz</button>
+
+            <form [formGroup]="formGroup" (ngSubmit)="sendFile(formGroup.value)" class="mt-5">
+                <input type="file" id="customFile" (change)="onFileSelected($event)"
+                onclick="this.value = null"
+                mat-raised-button type="file" class="file-input" #fileUpload formControlName="file"/>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Nazwa</mat-label>
+                  <input matInput #first formControlName="name">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Opis</mat-label>
+                  <input matInput #last formControlName="description">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                  <button mat-raised-button (click)="closeDialog()" class="mr-1">Anuluj</button>
+                  <button mat-raised-button class="ml-1">Wyślij</button>
+                </div>
+                <div class="col-md-4">
+                </div>
+              </div>
+            </form>
+      </div>
+</div>
