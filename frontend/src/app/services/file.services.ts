@@ -35,9 +35,7 @@ export class FileServices {
         dataForm.append('name', file.Name);
         dataForm.append('description', file.Description);
         var url = data.apiHost  + 'images'
-        var response = await this.httpClient.post(url, data, {
-            headers: {'Content-Type' : 'multipart/form-data', 'Access-Control-Allow-Origin' : '*'}
-         });
+        var response = await this.httpClient.post(url, dataForm);
         return lastValueFrom<any>(response);
     }
 }
