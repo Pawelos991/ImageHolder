@@ -5,7 +5,7 @@
 </div>
 <div class="row mt-5">
   <div class="col-md-12">
-       <table mat-table [dataSource]="fileList" class="mat-elevation-z8" #imageTableElement>
+       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #imageTableElement>
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef class="textCenter"> Nazwa </th>
           <td mat-cell *matCellDef="let element" class="textCenter"> {{element.name}} </td>
@@ -26,5 +26,9 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements">
+      </mat-paginator>
     </div>
 </div>

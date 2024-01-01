@@ -8,7 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { FileServices } from './services/file.services';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
@@ -16,6 +16,12 @@ import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { FileInputDialog } from './inputFileDialog/inputFileDialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule, NgIf } from '@angular/common';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { APP_INITIALIZER } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +41,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     FileInputDialog,
     FormsModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule,
+    CommonModule,
+    NgIf,
+    MatPaginatorModule,
   ],
   providers: [
     FileServices,
-    MatDialog
+    MatDialog,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,17 +5,23 @@ import { FileContent } from "../model/FileContent";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { FileServices } from "../services/file.services";
+import { MatSnackBar, MatSnackBarModule, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
     selector: 'input-file-dialog',
     templateUrl: 'inputFileDialog.component.html',
     standalone: true,
-    imports: [MatDialogModule, MatButtonModule,MatFormFieldModule, MatInputModule,ReactiveFormsModule],
+    imports: [MatDialogModule, MatButtonModule,MatFormFieldModule, MatInputModule, 
+      ReactiveFormsModule, MatSnackBarModule,CommonModule],
   })
   export class FileInputDialog  {
-    constructor(public dialogRef: MatDialogRef<FileInputDialog>,
-                private formBuilder: FormBuilder) {
-        dialogRef.disableClose = true;
+    constructor(private dialogRef: MatDialogRef<FileInputDialog>,
+                private formBuilder: FormBuilder,
+                private fileService: FileServices,
+                private _snackBar: MatSnackBar) {
     }
 
     ngOnInit() {
@@ -47,9 +53,22 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
 
     public onFileSelected(event: any){
         this.selectedFiles = event.target.files;
-      }
+    }
 
     sendFile(event){
-      console.log(event);
+      if (this.formGroup.valid)
+      {
+        this.fileToUpload = new FileContent();
+        this.fileToUpload.Content = this.selectedFiles[0];
+        this.fileToUpload.Name = this.formGroup.controls['name'].value
+        this.fileToUpload.Description = this.formGroup.controls['description'].value
+        this.fileService.pushFileToStorage(this.fileToUpload).then(x => 
+          this._snackBar.open("Pomyślnie dodano plik", '', {
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+            duration: 3000,
+          }));
+          this.dialogRef.close();
+      }
     }
   }

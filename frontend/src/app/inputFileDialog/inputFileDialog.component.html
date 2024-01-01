@@ -6,7 +6,9 @@
             <form [formGroup]="formGroup" (ngSubmit)="sendFile(formGroup.value)" class="mt-5">
                 <input type="file" id="customFile" (change)="onFileSelected($event)"
                 onclick="this.value = null"
-                mat-raised-button type="file" class="file-input" #fileUpload formControlName="file"/>
+                mat-raised-button type="file" class="file-input" #fileUpload formControlName="file"
+                accept="image/*" />
+                <div *ngIf="selectedFiles"> {{selectedFiles[0].name}} </div>
               <div class="row">
                 <mat-form-field>
                   <mat-label>Nazwa</mat-label>
