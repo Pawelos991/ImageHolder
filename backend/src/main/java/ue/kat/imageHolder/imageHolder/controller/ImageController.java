@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import ue.kat.imageHolder.imageHolder.dto.BasicResponse;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageDto;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageRequest;
 import ue.kat.imageHolder.imageHolder.dto.image.ImageResponse;
 import ue.kat.imageHolder.imageHolder.service.ImageService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("${apiV1}/images")
 @RequiredArgsConstructor

@@ -6,3 +6,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .file-input {
     display: none;
 }
+
+.textCenter{
+    text-align: center !important; 
+}
+
+.textRight{
+    text-align: right !important;
+}
