@@ -2,14 +2,12 @@ import { HttpClient, HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from "@
 import { Injectable, inject } from "@angular/core";
 import { Observable, lastValueFrom } from 'rxjs';
 import { File } from "../model/File";
-import { FileSaverService } from 'ngx-filesaver'; 
 import { FileContent } from "../model/FileContent";
 import data from '../config/appConfig.json';
 
 @Injectable()
 export class FileServices {
-    constructor(private httpClient: HttpClient,
-        private fileSaverService: FileSaverService) {
+    constructor(private httpClient: HttpClient) {
         }
         
     public appConfig;
